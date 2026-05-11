@@ -1,0 +1,226 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #000000;
+    --surface: #161616;
+    --border: #2a2a2a;
+    --text: #ffffff;
+    --muted: #ffffff;
+    --accent: #4a29c2;
+    --danger: #ff4f4f;
+    font-size: 140%;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Mono', monospace;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    width: 100%;
+    max-width: 560px;
+    padding: 2rem;
+    position: relative;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent);
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+    color: var(--text);
+}
+
+.subtitle {
+    font-size: 0.65rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    letter-spacing: 0.04em;
+}
+
+label {
+    display: block;
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+}
+
+.field {
+    margin-bottom: 1.25rem;
+}
+
+.date-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.date-row .sub-label {
+    display: block;
+    font-size: 0.55rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+}
+
+input {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    padding: 0.6rem 0.75rem;
+    outline: none;
+    transition: border-color 0.15s;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+input::placeholder {
+    color: #3a3a3a;
+}
+
+input:focus {
+    border-color: var(--accent);
+}
+
+.optional-tag {
+    font-size: 0.55rem;
+    color: #444;
+    margin-left: 0.4rem;
+    letter-spacing: 0;
+    text-transform: none;
+    font-style: italic;
+}
+
+button {
+    width: 100%;
+    background: var(--accent);
+    color: #ffffff;
+    border: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: opacity 0.15s;
+    margin-top: 0.5rem;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+.results {
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+    display: none;
+    animation: fa 1s ease;
+}
+
+@keyframes fa {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.results.visible {
+    display: block;
+}
+
+.stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.stat:last-of-type {
+    border-bottom: none;
+}
+
+.stat-label {
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+}
+
+.stat-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.roast {
+    margin-top: 1.25rem;
+    background: #1a1a1a;
+    border-left: 3px solid var(--danger);
+    padding: 0.75rem 1rem;
+    font-size: 0.72rem;
+    color: #bbb;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.error {
+    font-size: 0.7rem;
+    color: var(--danger);
+    margin-top: 0.5rem;
+    display: none;
+}
+
+.error.visible {
+    display: block;
+}
+
+.credits {
+    margin-top: 1.5rem;
+    font-size: 0.6rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+}
+
+.credits a {
+    color: var(--muted);
+    text-decoration: none;
+}
+
+.credits a:hover {
+    color: var(--text);
+}
